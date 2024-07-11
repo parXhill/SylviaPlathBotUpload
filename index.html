@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='style.css' rel='stylesheet'>
+    <script src="./fetchOpenAI.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=WindSong:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap" rel="stylesheet">
+
+    <title>Basic Input and Output</title>
+</head>
+<body>
+    <h1>A Message from Sylvia</h1>
+    <br>
+    <img id="plath" src ="https://media.newyorker.com/photos/5a29a6914ec5bd4678e6415e/master/pass/Crawford-Letters-of-Sylvia-Plath.jpg">
+    <div class="submission">
+        <input type="text" id="inputBox" placeholder="Dear Sylvia...">
+        <button id="submitButton">Be heard</button>
+        <div id="loading"></div>
+    </div>
+    <div class="output">
+        <textarea id="outputBox" readonly></textarea>
+        <audio id="audioPlayer" controls></audio>
+    </div>
+</body>
+</html>
