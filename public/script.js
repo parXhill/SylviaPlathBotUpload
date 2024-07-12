@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const audioGetButton = document.getElementById('audioGetButton');
     const audioPlayer = document.getElementById('audioPlayer');
     
-    const apiKey = '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';
-
     submitButton.addEventListener('click', getResponse)
     
     async function getResponse(){
@@ -17,11 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Replace 'YOUR_OPENAI_API_KEY' with your actual OpenAI API key
 
-        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        const response = await fetch('https://sylvia-plath-bot-3536ab658ff3.herokuapp.com/api/generate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiKey}`
             },
             body: JSON.stringify({
                 model: 'gpt-3.5-turbo',
@@ -49,11 +46,10 @@ audioGetButton.addEventListener('click', getAudio)
 
 async function getAudio(responseString){
    
-    const audioResponse = await fetch('https://api.openai.com/v1/audio/speech', {
+    const audioResponse = await fetch('https://sylvia-plath-bot-3536ab658ff3.herokuapp.com/api/generate', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
         },
         body: JSON.stringify({
             model: 'tts-1',

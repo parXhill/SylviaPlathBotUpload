@@ -1,10 +1,15 @@
 const express = require('express');
 const axios = require('axios');
+const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+// API endpoint
 app.post('/api/generate', async (req, res) => {
     const prompt = req.body.prompt;
     try {
@@ -22,6 +27,11 @@ app.post('/api/generate', async (req, res) => {
     } catch (error) {
         res.status(500).send('Error generating response');
     }
+});
+
+// Catch-all route to serve index.html
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(port, () => {
