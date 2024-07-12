@@ -4,6 +4,9 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Replace 'YOUR_OPENAI_API_KEY' with your actual OpenAI API key
+const OPENAI_API_KEY = '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';
+
 app.use(express.json());
 
 // Serve static files from the "public" directory
@@ -20,12 +23,11 @@ app.post('/api/generate', async (req, res) => {
         }, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
+                'Authorization': `Bearer ${OPENAI_API_KEY}`
             }
         });
         res.json(response.data);
     } catch (error) {
-        console.error('Error generating response:', error.response ? error.response.data : error.message);
         res.status(500).send('Error generating response');
     }
 });
