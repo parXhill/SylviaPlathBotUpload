@@ -25,6 +25,7 @@ app.post('/api/generate', async (req, res) => {
         });
         res.json(response.data);
     } catch (error) {
+        console.error('Error generating response:', error.response ? error.response.data : error.message);
         res.status(500).send('Error generating response');
     }
 });
