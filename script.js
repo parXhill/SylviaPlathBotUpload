@@ -38,7 +38,7 @@ async function getApiKey() {
             },
             body: JSON.stringify({
                 model: 'gpt-3.5-turbo',
-                messages: [{role: 'user', content: `Pretend to be Sylvia Plath. Respond to the User's input as her. Make your language and style match hers. Speak with compassion and care for the user. Try to make them feel good in your response. Reflect on your own life with empathy if necessary. Respond in 75 words or less. User input: (${userInput})`}],
+                messages: [{role: 'user', content: `Pretend to be Sylvia Plath. Respond to the User's input as her. Make your language and style match hers, highly poetic with references to her writing if appropriate. Speak with compassion and care for the user. Try to make them feel good in your response. Reflect on your own life empathetically if necessary. Respond in 75 words or less. User input: (${userInput})`}],
                 max_tokens: 100
             })
         });
